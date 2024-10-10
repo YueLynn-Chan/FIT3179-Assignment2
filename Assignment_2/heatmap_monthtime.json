@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/ufo-sightings-data.csv"
+    },
+    "title": "UFO sightings by Time and Month",
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 13
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Hour",
+            "type": "quantitative",
+            "title": "Hour",
+            "axis": {
+                "tickCount": 25,
+                "tickMinStep": 1
+            }
+        },
+        "y": {
+            "field": "Month",
+            "timeUnit": "month",
+            "type": "ordinal",
+            "title": "Month"
+        },
+        "color": {
+            "field": "ID",
+            "aggregate": "count",
+            "type": "quantitative",
+            "legend": {
+                "title": null
+            }
+        }
+    }
+  }
