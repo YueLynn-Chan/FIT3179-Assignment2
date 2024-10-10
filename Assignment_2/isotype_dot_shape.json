@@ -1,0 +1,13 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "UFO Shapes Sighted" },
+    "data": {
+    "url": "data/ufo-sightings-data.csv"},
+    "mark": "bar",
+    "encoding": {
+    "x": { "aggregate": "count",
+            "field": "ID", 
+            "type": "quantitative" },
+    "y": { "field": "UFO_shape", "type": "nominal", "sort": "-x" }
+    }
+}
