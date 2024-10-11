@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "projection": {
+      "type": "orthographic",
+      "rotate": {"expr": "[rotate0, rotate1, 0]"}
+    },
+    "params": [
+      {
+        "name": "rotate0",
+        "value": 0,
+        "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
+      },
+      {
+        "name": "rotate1",
+        "value": 0,
+        "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
+      }
+    ],
+    "layer": [
+      {
+        "data": {"sphere": true},
+        "mark": {"type": "geoshape", "fill": "aliceblue"}
+      },
+      {
+        "data": {
+          "name": "world",
+          "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+          "format": {"type": "topojson", "feature": "countries"}
+        },
+        "mark": {"type": "geoshape", "fill": "mintcream", "stroke": "black"}
+      },
+      {
+        "data": {
+          "name": "ufo-sightings",
+          "url": "data/ufo-sightings-data.csv"
+        },
+        "transform": [
+          {"calculate": "datum.longitude", "as": "longitude"},
+          {"calculate": "datum.latitude", "as": "latitude"},
+          {
+           "filter": "(rotate0 * -1) - 90 < datum.longitude && datum.longitude < (rotate0 * -1) + 90 && (rotate1 * -1) - 90 < datum.latitude && datum.latitude < (rotate1 * -1) + 90"
+        }
+        ],
+        "mark": {"type": "circle", "color": "red", "opacity": 0.1},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"}
+        }
+      }
+    ]
+  }
