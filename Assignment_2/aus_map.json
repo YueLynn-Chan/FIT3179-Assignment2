@@ -26,7 +26,13 @@
                 "longitude": {"field": "longitude", "type": "quantitative"},
                 "latitude": {"field": "latitude", "type": "quantitative"},
                 "size": {"value": 10},
-                "color": {"value": "steelblue"}
+                "color": {"value": "steelblue"},
+                "tooltip": [
+                    {"field": "Date_Time", "type": "temporal"},
+                    {"field": "Region"},
+                    {"field": "Country"} 
+
+                ]
                 }
             }
     ]
