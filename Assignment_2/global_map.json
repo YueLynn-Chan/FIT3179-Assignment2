@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 300,
-    "height": 300,
+    "width": "container",
+    "height": "container",
     "projection": {
       "type": "orthographic",
       "rotate": {"expr": "[rotate0, rotate1, 0]"}
