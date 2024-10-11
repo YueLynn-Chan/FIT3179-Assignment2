@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "$width": 800, 
+    "$height": 450,
+    "title": "UFO Sightings in Australia",
+    "Projection": {"type": "equalEarth"},
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/cartdeco/Australia-json-data/refs/heads/master/aus25fgd_r.topojson",
+                "format": {"type": "topojson", "feature": "collection"}
+            },
+            "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+        },
+        {
+            "data": {
+                "url": "data/ufo-sightings-data.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Country == 'Australia'"
+                }
+            ],
+            "mark": "circle",
+            "encoding": {
+                "longitude": {"field": "longitude", "type": "quantitative"},
+                "latitude": {"field": "latitude", "type": "quantitative"},
+                "size": {"value": 10},
+                "color": {"value": "steelblue"}
+                }
+            }
+    ]
+}
