@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": {"fillOpacity": 0},
     "data": {"url": "data/ufo-sightings-data.csv"},
     "spacing": 15,
     "bounds": "flush",
@@ -59,6 +60,9 @@
                 "type": "quantitative",
                 "legend": {
                     "title": "UFO Count"
+                },
+                "scale": {
+                    "scheme": "inferno"
                 }
             }
         }

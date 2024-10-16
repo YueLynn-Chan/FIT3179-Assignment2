@@ -1,7 +1,8 @@
 html,
 body {
-    background-color: #050e40;
+    background-color: #141414;
     width: 1200px;
+    height: 6000px;
     margin: 0 auto;
     background-image: url("background.png");
     background-repeat: no-repeat;
@@ -11,7 +12,8 @@ body {
 
 .pure-u-1{
     width: 1200px;
-    height: 300px;
+    height: 200px;
+    margin: auto;
 }
 
 .pure-u-1-3 {
@@ -41,6 +43,17 @@ body {
     height: 600px;
 }
 
+.pure-u-1-12 {
+    width: 275px;
+    height: 600px;
+}
+
+.pure-u-5-6 {
+    width: 800px;
+    height: 600px;
+}
+
+
 #text_div {
     margin-left: 10px;
     margin-right: 10px;
@@ -57,7 +70,6 @@ p {
     font-size: 16px;
 }
 
-
 #global_map {
     width: 450px;
     height: 450px;
@@ -66,11 +78,17 @@ p {
 
 #bar_shape {
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
 #aus_map {
     width: 100%;
     height: 100%;
     margin-left: 50px;
+}
+
+#concat_heatmap {
+    width: 100%;
+    height: 100%;
+    margin: auto;
 }
