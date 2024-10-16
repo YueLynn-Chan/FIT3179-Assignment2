@@ -1,9 +1,13 @@
 html,
 body {
-    background-color: #F3FAF9;
+    background-color: #050e40;
     width: 1200px;
     margin: 0 auto;
+    background-image: url("background.png");
+    background-repeat: no-repeat;
 }
+
+
 
 .pure-u-1{
     width: 1200px;
@@ -21,9 +25,8 @@ body {
 }
 
 .pure-u-2-5 {
-    width: 476px;
+    width: 480px;
     height: 560px;
-    border: 2px solid black;
     text-align: center;
 }
 
@@ -69,4 +72,5 @@ p {
 #aus_map {
     width: 100%;
     height: 100%;
+    margin-left: 50px;
 }

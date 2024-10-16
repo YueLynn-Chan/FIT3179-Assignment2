@@ -2,6 +2,8 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
     "height": "container",
+    "background": {"fillOpacity": 0},
+    "config": {"view": {"stroke": "transparent"}},
     "title": { "text": "UFO Shapes Sighted" },
     "data": {
     "url": "data/ufo-sightings-data.csv"},

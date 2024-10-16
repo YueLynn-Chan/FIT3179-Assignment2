@@ -1,19 +1,22 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": "container",
+    "width": 400,
+    "height": 400,
+    "background": {"fillOpacity": 0},
+    "config": {"view": {"stroke": "transparent"}},    
+    "title": "UFO Sightings in Australia",
     "projection": {
       "type": "orthographic",
-      "rotate": {"expr": "[rotate0, rotate1, 0]"}
+      "rotate": {"expr": "[latitude, logitude, 0]"}
     },
     "params": [
       {
-        "name": "rotate0",
+        "name": "latitude",
         "value": 0,
         "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
       },
       {
-        "name": "rotate1",
+        "name": "logitude",
         "value": 0,
         "bind": {"input": "range", "min": -90, "max": 90, "step": 1}
       }
@@ -40,7 +43,7 @@
           {"calculate": "datum.longitude", "as": "longitude"},
           {"calculate": "datum.latitude", "as": "latitude"},
           {
-           "filter": "(rotate0 * -1) - 90 < datum.longitude && datum.longitude < (rotate0 * -1) + 90 && (rotate1 * -1) - 90 < datum.latitude && datum.latitude < (rotate1 * -1) + 90"
+           "filter": "(latitude * -1) - 90 < datum.longitude && datum.longitude < (latitude * -1) + 90 && (logitude * -1) - 90 < datum.latitude && datum.latitude < (logitude * -1) + 90"
         }
         ],
         "mark": {"type": "circle", "color": "red", "opacity": 0.1},

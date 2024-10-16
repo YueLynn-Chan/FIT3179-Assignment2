@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "data/ufo-sightings-data.csv"},
+    "spacing": 15,
+    "bounds": "flush",
+    "title": {
+        "text": "UFO sightings by Time and Month",
+        "anchor": "middle"},
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 13
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "vconcat": [{
+      "mark": "bar",
+      "height": 30,
+      "encoding": {
+        "x": {
+          "bin": false,
+          "field": "Hour",
+          "axis": null,
+          "sort": ["12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
+        
+        },
+        "y": {
+          "aggregate": "count",
+          "scale": {
+            "domain": [0,10000]
+          },
+          "title": ""
+        }
+      }
+    }, {
+      "spacing": 15,
+      "bounds": "flush",
+      "hconcat": [{
+        "mark": "rect",
+        "encoding": {
+            "x": {
+                "field": "Hour",
+                "type": "ordinal",
+                "title": "Hour",
+                "sort": ["12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
+            },
+            "y": {
+                "field": "Month",
+                "timeUnit": "month",
+                "type": "ordinal",
+                "title": "Month",
+                "sort": ["Dec", "Nov", "Oct", "Sep", "Aug", "Jul", "Jun", "May", "Apr", "Mar", "Feb", "Jan"]
+            },
+            "color": {
+                "field": "ID",
+                "aggregate": "count",
+                "type": "quantitative",
+                "legend": {
+                    "title": "UFO Count"
+                }
+            }
+        }
+      }, {
+        "mark": "bar",
+        "width": 30,
+        "encoding": {
+          "y": {
+            "bin": false,
+            "field": "Month",
+            "timeUnit": "month",
+            "axis": null,
+            "type": "ordinal",
+            "sort": ["Dec", "Nov", "Oct", "Sep", "Aug", "Jul", "Jun", "May", "Apr", "Mar", "Feb", "Jan"]
+          },
+          "x": {
+            "aggregate": "count",
+            "scale": {"domain": [0,10000]},
+            "title": ""
+          }
+        }
+      }]
+    }],
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }
+  
