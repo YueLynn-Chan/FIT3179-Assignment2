@@ -6,18 +6,13 @@
     "bounds": "flush",
     "title": {
         "text": "UFO sightings by Time and Month",
+        "color": "#FFFFFF",
         "anchor": "middle"},
-    "config": {
-        "view": {
-            "strokeWidth": 0,
-            "step": 13
-        },
-        "axis": {
-            "domain": false
-        }
-    },
+
     "vconcat": [{
-      "mark": "bar",
+      "mark": {
+        "type": "bar",
+        "color": "#FFEE00"},
       "height": 30,
       "encoding": {
         "x": {
@@ -67,7 +62,9 @@
             }
         }
       }, {
-        "mark": "bar",
+        "mark": {
+          "type": "bar",
+          "color": "#FFEE00"},
         "width": 30,
         "encoding": {
           "y": {
@@ -87,9 +84,18 @@
       }]
     }],
     "config": {
-      "view": {
-        "stroke": "transparent"
+        "view": {},
+        "axis": {
+            "domain": false,
+            "grid": false,
+            "labelColor": "#FFFFFF",
+            "titleColor": "#FFFFFF"
+        },
+        "legend": {
+          "labelColor": "#FFFFFF",
+          "titleColor": "#FFFFFF"
+        }
       }
     }
-  }
+  
   

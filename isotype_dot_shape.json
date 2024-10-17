@@ -31,7 +31,9 @@
         "groupby": ["UFO_shape_grouped"]
       }
     ],
-    "mark": "bar",
+    "mark": {
+      "type": "bar",
+      "color": "#d5a928"},
     "encoding": {
       "x": {
         "field": "total_count",

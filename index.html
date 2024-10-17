@@ -22,9 +22,18 @@
         
         <div class = "pure-u-2-5">
             <div id = "Text_Intro">
-                <h2>Introduction</h2>
+                <h2>What are UFOs?</h2>
                 <p>
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    "Unidentified flying objects (UFOs) also known as unidentified anomalous phenomenon (UAP) are any perceived airbonre, submerged or transmedium phenomenon that cannot be immediately identified or explained." <i>- Wikipedia (17/10/2024)</i>
+                </p>
+                <p>
+                   While there has been many unusual sightings in the sky throughout history, UFOs became culturally prominent after WW2, which escalated during the Space Age and the Cold War.  
+                </p>
+                <p>
+
+                </p>
+                <p>
+                    This data visualization aims to show 80,000 observations of these UFOs across the century, including the shape observed, duration spotted, the descriptions of the UFOs and such.
                 </p>
             </div>
         </div>
@@ -34,36 +43,69 @@
         </div>
 
         <div class = "pure-u-2-5">
-            <h2>Top 12 words in Description</h2>
+            <h3>Top 50 words in Descriptions</h3>
             <div id = "word_list"></div>
         </div>
 
         <div class = "pure-u-1-4">
-            <h3 style="padding-left: 50px;">UFO Shapes</h3>
+            <h3 style="padding-left: 100px;">UFO Shapes</h3>
             <div id = "bar_shape"></div>
         </div>
 
         <div class = "pure-u-1-2">
+            <h3 style = "color: #000000;">UFOs in Australia</h3>
+            <p style = "text-align: center;">Hover for more details!</p>
             <div id = "aus_map"></div>
-            <p>UFO Sightings in </p>
         </div>
         
         <div class = "pure-u-1-4">
-            <div id = "bar_chart2"></div>
-            <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </p>
+            <h3 style = 'text-align: left;'>Did you know?</h3>
+            <p style = "padding-right: 20px;">The first UFO sighting recorded in Australia is in 1868, where it was described to be shaped like an ark!</p>
+            <p style = "color: transparent;">Padding</p>
+            <h3 style = "text-align: center; font-size: 20px">States with Most Sightings</h3>
+            <p style = "text-align: center;">1. New South Wales</p>
+            <p style = "text-align: center;">2. Victoria</p>
+            <p style = "text-align: center;">3. Queensland</p>
+            <p style = "text-align: center;">4. Western Australia</p>
+            <p style = "text-align: center;">5. South Australia</p>
+            <p style = "text-align: center;">6. Tasmania</p>
         </div>
 
         <div class = "pure-u-1-2">
-                <div id = "concat_heatmap"></div>
+            <div id = "concat_heatmap"></div>
         </div>
 
         <div class = "pure-u-1-2">
+            <div id = "bar_chart"></div>
+        </div>
+
+        <div class = "pure-u-1-2">
+            <div id = "global_map"></div>
+        </div>
+
+        <div class = "pure-u-1-2">
+            <div id = "country_rank"></div>
             <div id = "stacked_line"></div>
         </div>
+        
 
+        <div class = "pure-u-1">
+        </div>
 
+        <div class = "pure-u-2-3">
+            <p style = "color: white; font-size: 24px">References:</p>
+            <p style = "color: white; font-size: 20px">Data Source: </p>
+            <p style = "color: white; font-size: 14px">https://www.kaggle.com/datasets/jonwright13/ufo-sightings-around-the-world-better</p>
+            <p style = "color: transparent; font-size: 14px">Padding</p>
+            <p style = "color: white; font-family:'Courier New', Courier, monospace">Author: Yue Lynn Chan</p>
+        </div>
+
+        <div class = "pure-u-1-3">
+            <p style = "color: transparent; font-size: 24px">References</p>
+            <p style = "color: white; font-size: 20px">Additional Information:</p>
+            <p style = "color: white; font-size: 14px">https://en.wikipedia.org/wiki/Unidentified_flying_object</p>
+            <p style = "color: white; font-size: 14px">https://www.britannica.com/topic/unidentified-flying-object</p>
+        </div>
 
     </div>
 
@@ -73,6 +115,8 @@
         vegaEmbed("#bar_shape", "isotype_dot_shape.json",{renderer: "svg", actions: false}).catch(console.error);
         vegaEmbed("#global_map", "global_map.json",{renderer: "svg", actions: false}).catch(console.error);
         vegaEmbed("#concat_heatmap", "concat_heatmap.json",{renderer: "svg", actions: false}).catch(console.error);
+        vegaEmbed("#bar_chart", "bar_chart.json",{renderer: "svg", actions: false}).catch(console.error);
+        vegaEmbed("#country_rank", "country_bar.json",{renderer: "svg", actions: false}).catch(console.error);
         vegaEmbed("#stacked_line", "Density.json",{renderer: "svg", actions: false}).catch(console.error);
     </script>
 </body>

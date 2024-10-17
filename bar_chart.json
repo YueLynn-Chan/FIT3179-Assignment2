@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 450, 
+    "height": 300,
+    "background": {"fillOpacity": 0},
+    "title": {
+      "text": "Length of Encounters",
+      "color": "#FFFFFF"},
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {
+        "grid": false, 
+        "labelColor": "#FFFFFF",
+        "titleColor": "#FFFFFF"  
+      }},
+    "description": "A bar chart with custom binned length_of_encounter_secondss.",
+    "data": {
+      "url": "data/ufo-sightings-data.csv"
+    },
+    "transform": [
+      {
+        "calculate": "datum.length_of_encounter_seconds <= 30 ? '0-30' : datum.length_of_encounter_seconds <= 60 ? '30-60' : datum.length_of_encounter_seconds <= 360 ? '60-360' : datum.length_of_encounter_seconds <= 1080 ? '360-1080' : '> 1080'",
+        "as": "bin_range" 
+      },
+      {
+        "aggregate": [
+          {
+            "op": "count",
+            "as": "count"
+          }
+        ],
+        "groupby": ["bin_range"]
+      }
+    ],
+    "mark": {
+      "type": "bar",
+      "color": "#FFEE00"},
+    "encoding": {
+      "x": {
+        "field": "bin_range",
+        "title": "Length of Encounter (seconds)",
+        "type": "nominal",
+        "axis": {"labelAngle": 0}
+      },
+      "y": {
+        "field": "count",
+        "title": "Number of Sightings",
+        "type": "quantitative"
+      }
+    }
+  }
+  

@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 450, 
+    "height": 220,
+    "background": {"fillOpacity": 0},
+    "config": {
+        "view": {"stroke": "transparent"},
+        "axis": {
+          "grid": false, 
+          "labelColor": "#FFFFFF",
+          "titleColor": "#FFFFFF"  
+        }},
+    "title": {
+        "text": "Top 4 Countries with most UFO Sightings",
+        "color": "#FFFFFF"},
+    "data": {
+        "url": "data/ufo-sightings-data.csv",
+        "format": {"type": "csv"}
+    },
+    "transform": [
+        {
+            "aggregate": [
+                {
+                    "op": "count",
+                    "field": "ID",
+                    "as": "Count"
+                }
+            ],
+            "groupby": ["Country"]
+        },
+        {
+            "filter": "datum.Count > 300" 
+        },
+        {
+            "sort": {"field": "Count", "order": "descending"} 
+        }
+    ],
+    "mark": {
+        "type": "bar",
+        "color": "#FFEE00"},
+    "encoding": {
+        "x": {
+            "field": "Country",
+            "type": "ordinal",
+            "axis": {"labelAngle": 0}
+        },
+        "y": {
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Count"
+        }
+    }
+}
