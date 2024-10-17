@@ -1,17 +1,52 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": "container",
+    "height": 560,
     "background": {"fillOpacity": 0},
-    "config": {"view": {"stroke": "transparent"}},
-    "title": { "text": "UFO Shapes Sighted" },
-    "data": {
-    "url": "data/ufo-sightings-data.csv"},
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {
+        "grid": false, 
+        "labelColor": "#FFFFFF",
+        "titleColor": "#FFFFFF"  
+      },
+      "title": {"color": "#FFFFFF"}
+    },
+    "data": {"url": "data/ufo-sightings-data.csv"},
+    "transform": [
+      {
+        "window": [{"op": "count", "as": "count"}],
+        "sort": [{"field": "count", "order": "descending"}]
+      },
+      {
+        "window": [{"op": "rank", "as": "rank"}],
+        "sort": [{"field": "count", "order": "descending"}]
+      },
+      {
+        "calculate": "datum.rank > 15 ? 'Others' : datum.UFO_shape",
+        "as": "UFO_shape_grouped"
+      },
+      {
+        "aggregate": [{"op": "sum", "field": "count", "as": "total_count"}],
+        "groupby": ["UFO_shape_grouped"]
+      }
+    ],
     "mark": "bar",
     "encoding": {
-    "x": { "aggregate": "count",
-            "field": "ID", 
-            "type": "quantitative" },
-    "y": { "field": "UFO_shape", "type": "nominal", "sort": "-x" }
+      "x": {
+        "field": "total_count",
+        "type": "quantitative",
+        "title": "Count of Records",
+        "axis": {
+            "orient": "top"
+        }
+      },
+      "y": {
+        "field": "UFO_shape_grouped",
+        "type": "nominal",
+        "sort": "-x",
+        "title": "UFO Shape"
+      }
     }
-}
+  }
+  
