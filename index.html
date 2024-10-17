@@ -59,6 +59,10 @@
                 <div id = "concat_heatmap"></div>
         </div>
 
+        <div class = "pure-u-1-2">
+            <div id = "stacked_line"></div>
+        </div>
+
 
 
     </div>
@@ -69,6 +73,7 @@
         vegaEmbed("#bar_shape", "isotype_dot_shape.json",{renderer: "svg", actions: false}).catch(console.error);
         vegaEmbed("#global_map", "global_map.json",{renderer: "svg", actions: false}).catch(console.error);
         vegaEmbed("#concat_heatmap", "concat_heatmap.json",{renderer: "svg", actions: false}).catch(console.error);
+        vegaEmbed("#stacked_line", "Density.json",{renderer: "svg", actions: false}).catch(console.error);
     </script>
 </body>
 

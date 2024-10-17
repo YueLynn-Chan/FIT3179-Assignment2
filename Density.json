@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 450, 
+    "height": 300,
+    "background": {"fillOpacity": 0},
+    "config": {"view": {"stroke": "transparent"}},
+    "title": "Counts by Country per Year",
+    "data": {
+      "url": "data/ufo-sightings-data.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Year >= 1994"
+          },
+      {
+        "calculate": "datum.Country === 'Australia' ? 'Australia' : 'Other Countries'",
+        "as": "CountryGroup"
+      },
+      {
+        "aggregate": [
+          {
+            "op": "count",
+            "as": "Count"
+          }
+        ],
+        "groupby": ["Year", "CountryGroup"]
+      }
+    ],
+    "mark": "line",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      "y": {
+        "field": "Count",
+        "type": "quantitative",
+        "title": "Count"
+      },
+      "color": {
+        "field": "CountryGroup",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Australia", "Other Countries"],
+          "range": ["#1f77b4", "#ff7f0e"]
+        },
+        "title": "Country Group",
+        "legend": {
+          "orient": "top-left"
+      }
+    }
+  }
+} 
